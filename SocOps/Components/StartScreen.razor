@@ -1,52 +1,44 @@
-<div class="flex flex-col items-center justify-center min-h-full p-6 bg-kolam relative overflow-hidden">
-    <!-- Decorative Kolam Corner Elements -->
-    <div class="absolute top-4 left-4 text-gold text-4xl opacity-40 animate-float" style="font-family: serif;">❈</div>
-    <div class="absolute top-4 right-4 text-gold text-4xl opacity-40 animate-float" style="animation-delay: 0.5s; font-family: serif;">❈</div>
-    <div class="absolute bottom-4 left-4 text-gold text-4xl opacity-40 animate-float" style="animation-delay: 1s; font-family: serif;">❈</div>
-    <div class="absolute bottom-4 right-4 text-gold text-4xl opacity-40 animate-float" style="animation-delay: 1.5s; font-family: serif;">❈</div>
+<div class="flex flex-col items-center justify-center min-h-full p-6 bg-kolam-subtle relative overflow-hidden">
+    <!-- Minimal Corner Decorations -->
+    <div class="absolute top-4 right-4 text-gold text-2xl opacity-20" style="font-family: serif;" aria-hidden="true">❈</div>
+    <div class="absolute bottom-4 left-4 text-gold text-2xl opacity-20" style="font-family: serif;" aria-hidden="true">❈</div>
 
-    <div class="text-center max-w-sm relative">
-        <!-- Temple Lamp Icon -->
-        <div class="text-5xl mb-4 animate-pulse-gold">🪔</div>
+    <div class="text-center max-w-md relative py-12">
+        <!-- Hero Section with Staggered Animation -->
+        <div class="animate-fade-up">
+            <div class="text-3xl mb-4 animate-pulse-gold">🪔</div>
+            <h1 class="font-display text-6xl text-maroon mb-1 tracking-wide">சோக் ஓப்ஸ்</h1>
+        </div>
         
-        <!-- Main Title with Tamil Script -->
-        <h1 class="font-display text-4xl text-maroon mb-1 tracking-wide">சோக் ஓப்ஸ்</h1>
-        <p class="text-2xl font-bold text-gradient-maroon mb-2">Soc Ops</p>
-        <p class="text-lg text-secondary mb-8 font-medium">சமூக பிங்கோ · Social Bingo</p>
+        <p class="text-xl font-semibold text-secondary mb-8 tracking-wider animate-fade-up" style="animation-delay: 0.15s;">Soc Ops</p>
 
-        <!-- How to Play Card - Temple Style -->
-        <div class="card-temple p-6 mb-8 relative">
-            <h2 class="font-bold text-maroon mb-4 text-lg tracking-wide">விளையாட்டு விதிகள்</h2>
-            <p class="text-sm text-muted mb-3 italic">How to Play</p>
-            <ul class="text-left text-secondary text-sm space-y-3">
+        <!-- How to Play - Minimalist Card -->
+        <div class="bg-white border-2 border-cream rounded-xl p-6 mb-8 shadow-md animate-fade-up" style="animation-delay: 0.3s;">
+            <h2 class="font-semibold text-maroon mb-4 text-base tracking-wider">How to Play</h2>
+            <ol class="text-left text-secondary text-sm space-y-3">
                 <li class="flex items-start gap-3">
-                    <span class="text-gold text-lg leading-none">🪷</span>
+                    <span class="font-bold text-maroon">1.</span>
                     <span>Find people who match the questions</span>
                 </li>
                 <li class="flex items-start gap-3">
-                    <span class="text-gold text-lg leading-none">🪔</span>
+                    <span class="font-bold text-maroon">2.</span>
                     <span>Tap a square when you find a match</span>
                 </li>
                 <li class="flex items-start gap-3">
-                    <span class="text-gold text-lg leading-none">✨</span>
+                    <span class="font-bold text-maroon">3.</span>
                     <span>Get 5 in a row to win!</span>
                 </li>
-            </ul>
+            </ol>
         </div>
 
-        <!-- Start Button - Temple Bell Style -->
+        <!-- Start Button - Simplified -->
         <button
             @onclick="OnStart"
-            class="w-full btn-primary font-bold py-4 px-8 rounded-xl text-lg tracking-wider">
-            <span class="flex items-center justify-center gap-3">
-                <span>🔔</span>
-                <span>தொடங்கு · Start Game</span>
-                <span>🔔</span>
-            </span>
+            class="w-full btn-primary font-semibold py-4 px-8 rounded-xl text-lg tracking-wider animate-fade-up"
+            style="animation-delay: 0.45s;"
+            aria-label="Start game">
+            Start · தொடங்கு
         </button>
-
-        <!-- Decorative Footer -->
-        <p class="mt-6 text-muted text-xs tracking-wider">வணக்கம் · Welcome</p>
     </div>
 </div>
 
