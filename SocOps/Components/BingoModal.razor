@@ -1,14 +1,54 @@
 <div class="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
-    <div class="bg-white rounded-xl p-6 max-w-xs w-full text-center shadow-xl animate-[bounce_0.5s_ease-out]">
-        <div class="text-5xl mb-4">🎉</div>
-        <h2 class="text-3xl font-bold text-amber-500 mb-2">BINGO!</h2>
-        <p class="text-gray-600 mb-6">You completed a line!</p>
+    <div class="relative overflow-hidden rounded-2xl max-w-xs w-full shadow-xl animate-bounce-in">
+        <!-- Decorative Top Border -->
+        <div class="h-2" style="background: repeating-linear-gradient(90deg, var(--tamil-gold) 0px, var(--tamil-gold) 8px, var(--tamil-maroon) 8px, var(--tamil-maroon) 16px);"></div>
+        
+        <div class="bg-cream p-6 text-center relative">
+            <!-- Corner Decorations -->
+            <div class="absolute top-2 left-2 text-gold text-2xl opacity-60">❈</div>
+            <div class="absolute top-2 right-2 text-gold text-2xl opacity-60">❈</div>
+            
+            <!-- Celebration Icon - Traditional Lamp -->
+            <div class="text-6xl mb-4 animate-float">
+                <span class="inline-block animate-diya">🪔</span>
+            </div>
+            
+            <!-- BINGO Text with Tamil -->
+            <h2 class="font-display text-4xl text-gold mb-1 tracking-wider" style="text-shadow: 2px 2px 4px rgba(128, 0, 32, 0.3);">
+                பிங்கோ!
+            </h2>
+            <p class="text-3xl font-extrabold text-maroon mb-2">BINGO!</p>
+            
+            <p class="text-secondary mb-6">
+                <span class="text-gold">✨</span>
+                You completed a line!
+                <span class="text-gold">✨</span>
+            </p>
+            
+            <!-- Lotus Decorations -->
+            <div class="flex justify-center gap-2 mb-6 text-2xl">
+                <span>🪷</span>
+                <span>🪷</span>
+                <span>🪷</span>
+            </div>
 
-        <button
-            @onclick="OnDismiss"
-            class="w-full bg-accent text-white font-semibold py-3 px-6 rounded-lg active:bg-accent-light transition-colors">
-            Keep Playing
-        </button>
+            <button
+                @onclick="OnDismiss"
+                class="w-full btn-primary font-bold py-3 px-6 rounded-xl tracking-wide">
+                <span class="flex items-center justify-center gap-2">
+                    <span>தொடரவும்</span>
+                    <span>·</span>
+                    <span>Keep Playing</span>
+                </span>
+            </button>
+            
+            <!-- Bottom Corner Decorations -->
+            <div class="absolute bottom-2 left-2 text-gold text-2xl opacity-60 transform rotate-180">❈</div>
+            <div class="absolute bottom-2 right-2 text-gold text-2xl opacity-60 transform rotate-180">❈</div>
+        </div>
+        
+        <!-- Decorative Bottom Border -->
+        <div class="h-2" style="background: repeating-linear-gradient(90deg, var(--tamil-maroon) 0px, var(--tamil-maroon) 8px, var(--tamil-gold) 8px, var(--tamil-gold) 16px);"></div>
     </div>
 </div>
 

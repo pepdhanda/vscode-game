@@ -1,22 +1,52 @@
-<div class="flex flex-col items-center justify-center min-h-full p-6 bg-gray-50">
-    <div class="text-center max-w-sm">
-        <h1 class="text-4xl font-bold text-gray-900 mb-2">Soc Ops</h1>
-        <p class="text-lg text-gray-600 mb-8">Social Bingo</p>
+<div class="flex flex-col items-center justify-center min-h-full p-6 bg-kolam relative overflow-hidden">
+    <!-- Decorative Kolam Corner Elements -->
+    <div class="absolute top-4 left-4 text-gold text-4xl opacity-40 animate-float" style="font-family: serif;">❈</div>
+    <div class="absolute top-4 right-4 text-gold text-4xl opacity-40 animate-float" style="animation-delay: 0.5s; font-family: serif;">❈</div>
+    <div class="absolute bottom-4 left-4 text-gold text-4xl opacity-40 animate-float" style="animation-delay: 1s; font-family: serif;">❈</div>
+    <div class="absolute bottom-4 right-4 text-gold text-4xl opacity-40 animate-float" style="animation-delay: 1.5s; font-family: serif;">❈</div>
 
-        <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-200 mb-8">
-            <h2 class="font-semibold text-gray-800 mb-3">How to play</h2>
-            <ul class="text-left text-gray-600 text-sm space-y-2">
-                <li>• Find people who match the questions</li>
-                <li>• Tap a square when you find a match</li>
-                <li>• Get 5 in a row to win!</li>
+    <div class="text-center max-w-sm relative">
+        <!-- Temple Lamp Icon -->
+        <div class="text-5xl mb-4 animate-pulse-gold">🪔</div>
+        
+        <!-- Main Title with Tamil Script -->
+        <h1 class="font-display text-4xl text-maroon mb-1 tracking-wide">சோக் ஓப்ஸ்</h1>
+        <p class="text-2xl font-bold text-gradient-maroon mb-2">Soc Ops</p>
+        <p class="text-lg text-secondary mb-8 font-medium">சமூக பிங்கோ · Social Bingo</p>
+
+        <!-- How to Play Card - Temple Style -->
+        <div class="card-temple p-6 mb-8 relative">
+            <h2 class="font-bold text-maroon mb-4 text-lg tracking-wide">விளையாட்டு விதிகள்</h2>
+            <p class="text-sm text-muted mb-3 italic">How to Play</p>
+            <ul class="text-left text-secondary text-sm space-y-3">
+                <li class="flex items-start gap-3">
+                    <span class="text-gold text-lg leading-none">🪷</span>
+                    <span>Find people who match the questions</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-gold text-lg leading-none">🪔</span>
+                    <span>Tap a square when you find a match</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-gold text-lg leading-none">✨</span>
+                    <span>Get 5 in a row to win!</span>
+                </li>
             </ul>
         </div>
 
+        <!-- Start Button - Temple Bell Style -->
         <button
             @onclick="OnStart"
-            class="w-full bg-accent text-white font-semibold py-4 px-8 rounded-lg text-lg active:bg-accent-light transition-colors">
-            Start Game
+            class="w-full btn-primary font-bold py-4 px-8 rounded-xl text-lg tracking-wider">
+            <span class="flex items-center justify-center gap-3">
+                <span>🔔</span>
+                <span>தொடங்கு · Start Game</span>
+                <span>🔔</span>
+            </span>
         </button>
+
+        <!-- Decorative Footer -->
+        <p class="mt-6 text-muted text-xs tracking-wider">வணக்கம் · Welcome</p>
     </div>
 </div>
 

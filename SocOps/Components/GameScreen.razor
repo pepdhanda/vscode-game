@@ -1,36 +1,70 @@
 @using SocOps.Models
 
-<div class="flex flex-col min-h-full bg-gray-50">
-    <!-- Header -->
-    <header class="flex items-center justify-between p-3 bg-white border-b border-gray-200">
-        <button
-            @onclick="OnReset"
-            class="text-gray-500 text-sm px-3 py-1.5 rounded active:bg-gray-100">
-            ← Back
-        </button>
-        <h1 class="font-bold text-gray-900">Soc Ops</h1>
-        <div class="w-16"></div>
+<div class="flex flex-col min-h-full bg-kolam-subtle">
+    <!-- Header with Temple Aesthetic -->
+    <header class="relative bg-maroon shadow-md">
+        <!-- Decorative Top Border -->
+        <div class="h-1 bg-gold"></div>
+        
+        <div class="flex items-center justify-between p-3">
+            <button
+                @onclick="OnReset"
+                class="text-cream text-sm px-3 py-1.5 rounded-lg border border-gold/30 transition-colors hover:bg-maroon-light flex items-center gap-2">
+                <span>🪷</span>
+                <span>திரும்பு</span>
+            </button>
+            <div class="text-center">
+                <h1 class="font-display text-cream text-xl tracking-wide">சோக் ஓப்ஸ்</h1>
+                <p class="text-gold text-xs font-medium">Soc Ops Bingo</p>
+            </div>
+            <div class="w-16 flex justify-end">
+                <span class="text-2xl animate-pulse-gold">🪔</span>
+            </div>
+        </div>
+        
+        <!-- Decorative Bottom Border - Saree Pattern -->
+        <div class="h-2" style="background: repeating-linear-gradient(90deg, var(--tamil-gold) 0px, var(--tamil-gold) 8px, var(--tamil-maroon-dark) 8px, var(--tamil-maroon-dark) 16px);"></div>
     </header>
 
     <!-- Instructions -->
-    <p class="text-center text-gray-500 text-sm py-2 px-4">
-        Tap a square when you find someone who matches it.
+    <p class="text-center text-secondary text-sm py-3 px-4 bg-cream-dark border-b border-gold/20">
+        <span class="text-gold">✦</span>
+        <span class="mx-2">Tap a square when you find someone who matches it</span>
+        <span class="text-gold">✦</span>
     </p>
 
-    <!-- Bingo indicator -->
+    <!-- Bingo Indicator -->
     @if (HasBingo)
     {
-        <div class="bg-amber-100 text-amber-800 text-center py-2 font-semibold text-sm">
-            🎉 BINGO! You got a line!
+        <div class="bg-gold text-maroon text-center py-3 font-bold text-sm tracking-wide shadow-gold animate-diya">
+            <span class="flex items-center justify-center gap-2">
+                <span>🪔</span>
+                <span>பிங்கோ! BINGO! You got a line!</span>
+                <span>🪔</span>
+            </span>
         </div>
     }
 
-    <!-- Board -->
-    <div class="flex-1 flex items-center justify-center p-3">
-        <BingoBoard
-            Board="@Board"
-            WinningSquareIds="@WinningSquareIds"
-            OnSquareClick="@OnSquareClick" />
+    <!-- Board Container -->
+    <div class="flex-1 flex items-center justify-center p-4">
+        <div class="w-full max-w-md">
+            <!-- Decorative Frame -->
+            <div class="relative p-2 rounded-xl" style="background: linear-gradient(135deg, var(--tamil-maroon) 0%, var(--tamil-gold) 50%, var(--tamil-maroon) 100%);">
+                <div class="bg-cream rounded-lg p-2">
+                    <BingoBoard
+                        Board="@Board"
+                        WinningSquareIds="@WinningSquareIds"
+                        OnSquareClick="@OnSquareClick" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Decoration -->
+    <div class="text-center py-2 text-muted text-xs">
+        <span class="text-gold">❈</span>
+        <span class="mx-2">வாழ்த்துக்கள் · Best Wishes</span>
+        <span class="text-gold">❈</span>
     </div>
 </div>
 
