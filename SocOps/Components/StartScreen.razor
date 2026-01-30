@@ -1,52 +1,165 @@
-<div class="flex flex-col items-center justify-center min-h-full p-6 bg-kolam relative overflow-hidden">
-    <!-- Decorative Kolam Corner Elements -->
-    <div class="absolute top-4 left-4 text-gold text-4xl opacity-40 animate-float" style="font-family: serif;">❈</div>
-    <div class="absolute top-4 right-4 text-gold text-4xl opacity-40 animate-float" style="animation-delay: 0.5s; font-family: serif;">❈</div>
-    <div class="absolute bottom-4 left-4 text-gold text-4xl opacity-40 animate-float" style="animation-delay: 1s; font-family: serif;">❈</div>
-    <div class="absolute bottom-4 right-4 text-gold text-4xl opacity-40 animate-float" style="animation-delay: 1.5s; font-family: serif;">❈</div>
+<div class="flex flex-col items-center justify-center min-h-full bg-kolam relative overflow-hidden">
+    <!-- Radial Gradient Overlay for Depth -->
+    <div class="absolute inset-0 z-0" style="background: radial-gradient(circle at center, rgba(254, 249, 231, 0.3) 0%, rgba(212, 167, 44, 0.15) 100%);"></div>
+    
+    <!-- Floating Decorative Elements (Multiple Layers) -->
+    <div class="absolute top-4 left-4 text-gold text-4xl opacity-40 animate-float z-10" style="font-family: serif;">❈</div>
+    <div class="absolute top-4 right-4 text-gold text-4xl opacity-40 animate-float z-10" style="animation-delay: 0.5s; font-family: serif;">❈</div>
+    <div class="absolute bottom-4 left-4 text-gold text-4xl opacity-40 animate-float z-10" style="animation-delay: 1s; font-family: serif;">❈</div>
+    <div class="absolute bottom-4 right-4 text-gold text-4xl opacity-40 animate-float z-10" style="animation-delay: 1.5s; font-family: serif;">❈</div>
+    
+    <!-- Floating Diyas -->
+    <div class="absolute top-12 left-12 text-2xl opacity-30 animate-float z-10" style="animation-delay: 0.3s;">🪔</div>
+    <div class="absolute top-16 right-16 text-2xl opacity-30 animate-float z-10" style="animation-delay: 0.7s;">🪔</div>
+    <div class="absolute bottom-16 left-20 text-2xl opacity-30 animate-float z-10" style="animation-delay: 1.2s;">🪔</div>
+    
+    <!-- Floating Lotus -->
+    <div class="absolute top-20 right-12 text-2xl opacity-30 animate-float z-10" style="animation-delay: 0.4s;">🪷</div>
+    <div class="absolute bottom-20 right-24 text-2xl opacity-30 animate-float z-10" style="animation-delay: 0.9s;">🪷</div>
+    
+    <!-- Sparkles -->
+    <div class="absolute top-24 left-24 text-xl opacity-30 animate-float z-10" style="animation-delay: 0.6s;">✨</div>
+    <div class="absolute bottom-24 left-16 text-xl opacity-30 animate-float z-10" style="animation-delay: 1.1s;">✨</div>
 
-    <div class="text-center max-w-sm relative">
-        <!-- Temple Lamp Icon -->
-        <div class="text-5xl mb-4 animate-pulse-gold">🪔</div>
+    <!-- Main Content Container -->
+    <div class="text-center max-w-4xl relative z-20 p-6">
         
-        <!-- Main Title with Tamil Script -->
-        <h1 class="font-display text-4xl text-maroon mb-1 tracking-wide">சோக் ஓப்ஸ்</h1>
-        <p class="text-2xl font-bold text-gradient-maroon mb-2">Soc Ops</p>
-        <p class="text-lg text-secondary mb-8 font-medium">சமூக பிங்கோ · Social Bingo</p>
-
-        <!-- How to Play Card - Temple Style -->
-        <div class="card-temple p-6 mb-8 relative">
-            <h2 class="font-bold text-maroon mb-4 text-lg tracking-wide">விளையாட்டு விதிகள்</h2>
-            <p class="text-sm text-muted mb-3 italic">How to Play</p>
-            <ul class="text-left text-secondary text-sm space-y-3">
-                <li class="flex items-start gap-3">
-                    <span class="text-gold text-lg leading-none">🪷</span>
-                    <span>Find people who match the questions</span>
-                </li>
-                <li class="flex items-start gap-3">
-                    <span class="text-gold text-lg leading-none">🪔</span>
-                    <span>Tap a square when you find a match</span>
-                </li>
-                <li class="flex items-start gap-3">
-                    <span class="text-gold text-lg leading-none">✨</span>
-                    <span>Get 5 in a row to win!</span>
-                </li>
-            </ul>
+        <!-- Animated Temple Gopuram Header -->
+        <div class="animate-reveal mb-8" style="animation-delay: 0s;">
+            <div class="bg-maroon py-3 px-6 rounded-t-2xl border-temple relative">
+                <div class="flex items-center justify-center gap-4">
+                    <span class="text-gold text-3xl">🔔</span>
+                    <h1 class="font-display text-3xl text-gold tracking-wider">சோக் ஓப்ஸ்</h1>
+                    <span class="text-gold text-3xl">🔔</span>
+                </div>
+            </div>
+            <!-- Toranam Mango Leaf Garland -->
+            <div class="toranam"></div>
         </div>
 
-        <!-- Start Button - Temple Bell Style -->
-        <button
-            @onclick="OnStart"
-            class="w-full btn-primary font-bold py-4 px-8 rounded-xl text-lg tracking-wider">
-            <span class="flex items-center justify-center gap-3">
-                <span>🔔</span>
-                <span>தொடங்கு · Start Game</span>
-                <span>🔔</span>
-            </span>
-        </button>
+        <!-- Hero Section with Layered Elements -->
+        <div class="relative mb-12 animate-reveal" style="animation-delay: 0.2s;">
+            <!-- Paisley/Kolam Corner Decorations -->
+            <div class="absolute top-0 left-0 text-4xl text-gold opacity-60" style="transform: rotate(-45deg);">❈</div>
+            <div class="absolute top-0 right-0 text-4xl text-gold opacity-60" style="transform: rotate(45deg);">❈</div>
+            <div class="absolute bottom-0 left-0 text-4xl text-gold opacity-60" style="transform: rotate(-135deg);">❈</div>
+            <div class="absolute bottom-0 right-0 text-4xl text-gold opacity-60" style="transform: rotate(135deg);">❈</div>
+            
+            <!-- Glowing Diya Cluster -->
+            <div class="mb-4 flex items-center justify-center gap-2">
+                <span class="text-5xl animate-diya">🪔</span>
+                <span class="text-6xl animate-diya" style="animation-delay: 0.3s;">🪔</span>
+                <span class="text-5xl animate-diya" style="animation-delay: 0.6s;">🪔</span>
+            </div>
+            
+            <!-- Extra-Large Title with Gradient -->
+            <h2 class="font-display text-6xl text-gradient-maroon mb-3 tracking-wide">Soc Ops</h2>
+            
+            <!-- Subtitle with Animated Gold Underline -->
+            <div class="relative inline-block">
+                <p class="text-2xl text-secondary mb-2 font-semibold">சமூக பிங்கோ · Social Bingo</p>
+                <div class="absolute bottom-0 left-0 right-0 h-1 bg-gold" style="background: linear-gradient(90deg, transparent 0%, var(--tamil-gold) 50%, transparent 100%);"></div>
+            </div>
+        </div>
+
+        <!-- Feature Pillars Section (NEW) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 animate-reveal" style="animation-delay: 0.4s;">
+            <!-- Connect Card -->
+            <div class="card-temple p-6 animate-lotus" style="animation-delay: 0.4s;">
+                <div class="text-5xl mb-3">🤝</div>
+                <h3 class="font-bold text-maroon text-xl mb-2">Connect</h3>
+                <p class="text-secondary text-sm mb-1">Find friends who</p>
+                <p class="text-secondary text-sm">match the questions</p>
+                <p class="text-gold text-xs mt-2 italic">இணைப்பு</p>
+            </div>
+            
+            <!-- Play Card -->
+            <div class="card-temple p-6 animate-lotus" style="animation-delay: 0.5s;">
+                <div class="text-5xl mb-3">🎯</div>
+                <h3 class="font-bold text-maroon text-xl mb-2">Play</h3>
+                <p class="text-secondary text-sm mb-1">Mark your squares</p>
+                <p class="text-secondary text-sm">as you find matches</p>
+                <p class="text-gold text-xs mt-2 italic">விளையாடு</p>
+            </div>
+            
+            <!-- Win Card -->
+            <div class="card-temple p-6 animate-lotus" style="animation-delay: 0.6s;">
+                <div class="text-5xl mb-3">🏆</div>
+                <h3 class="font-bold text-maroon text-xl mb-2">Win</h3>
+                <p class="text-secondary text-sm mb-1">Get 5 in a row</p>
+                <p class="text-secondary text-sm">to claim victory!</p>
+                <p class="text-gold text-xs mt-2 italic">வெற்றி</p>
+            </div>
+        </div>
+
+        <!-- Enhanced How to Play -->
+        <div class="border-saree rounded-xl p-8 mb-12 bg-white relative animate-reveal" style="animation-delay: 0.6s;">
+            <!-- Rangoli Corner Decorations -->
+            <div class="absolute top-2 left-2 text-gold text-2xl opacity-60">✦</div>
+            <div class="absolute top-2 right-2 text-gold text-2xl opacity-60">✦</div>
+            <div class="absolute bottom-2 left-2 text-gold text-2xl opacity-60">✦</div>
+            <div class="absolute bottom-2 right-2 text-gold text-2xl opacity-60">✦</div>
+            
+            <h2 class="font-display text-maroon text-2xl mb-2 tracking-wide">விளையாட்டு விதிகள்</h2>
+            <p class="text-muted text-sm mb-6 italic">How to Play</p>
+            
+            <div class="space-y-4 text-left max-w-md mx-auto">
+                <!-- Step 1 -->
+                <div class="flex items-start gap-4">
+                    <div class="flex-shrink-0 w-10 h-10 rounded-full bg-gold flex items-center justify-center text-white font-bold shadow-gold">1</div>
+                    <div class="flex-1">
+                        <p class="text-secondary font-semibold mb-1">🪷 Find People</p>
+                        <p class="text-sm text-muted">Look for people who match the questions on your board</p>
+                    </div>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="flex items-start gap-4">
+                    <div class="flex-shrink-0 w-10 h-10 rounded-full bg-gold flex items-center justify-center text-white font-bold shadow-gold">2</div>
+                    <div class="flex-1">
+                        <p class="text-secondary font-semibold mb-1">🪔 Mark Squares</p>
+                        <p class="text-sm text-muted">Tap a square when you find someone who matches</p>
+                    </div>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="flex items-start gap-4">
+                    <div class="flex-shrink-0 w-10 h-10 rounded-full bg-gold flex items-center justify-center text-white font-bold shadow-gold">3</div>
+                    <div class="flex-1">
+                        <p class="text-secondary font-semibold mb-1">✨ Get 5 in a Row</p>
+                        <p class="text-sm text-muted">Complete any row, column, or diagonal to win!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Festive CTA Section -->
+        <div class="relative mb-8 animate-reveal" style="animation-delay: 0.8s;">
+            <!-- Floating Lotus on Either Side -->
+            <div class="absolute left-0 top-1/2 -translate-y-1/2 text-4xl animate-float" style="animation-delay: 0.5s;">🪷</div>
+            <div class="absolute right-0 top-1/2 -translate-y-1/2 text-4xl animate-float" style="animation-delay: 1s;">🪷</div>
+            
+            <button
+                @onclick="OnStart"
+                class="w-full max-w-md mx-auto btn-primary font-bold py-4 px-8 rounded-xl text-xl tracking-wider shadow-glow animate-shimmer-border">
+                <span class="flex items-center justify-center gap-3">
+                    <span class="animate-bell">🔔</span>
+                    <span>தொடங்கு · Start Game</span>
+                    <span class="animate-bell" style="animation-delay: 0.1s;">🔔</span>
+                </span>
+            </button>
+        </div>
 
         <!-- Decorative Footer -->
-        <p class="mt-6 text-muted text-xs tracking-wider">வணக்கம் · Welcome</p>
+        <div class="mt-12 animate-reveal" style="animation-delay: 1s;">
+            <div class="mb-2 opacity-40">
+                <div style="height: 2px; background: radial-gradient(circle, var(--tamil-maroon) 1px, transparent 1px); background-size: 8px 8px; max-width: 200px; margin: 0 auto;"></div>
+            </div>
+            <p class="text-muted text-sm tracking-wider mb-1">
+                <span class="text-gold">✦</span> வணக்கம் · Welcome <span class="text-gold">✦</span>
+            </p>
+            <p class="text-muted text-xs italic">வாழ்த்துக்கள் · Best Wishes</p>
+        </div>
     </div>
 </div>
 
