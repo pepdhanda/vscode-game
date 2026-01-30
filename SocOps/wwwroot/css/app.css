@@ -687,3 +687,68 @@ button:active .active\:bg-accent-light { background-color: var(--tamil-maroon-li
     .loading-progress-text:after {
         content: var(--blazor-load-percentage-text, "Loading");
     }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Preview Board Styles (for StartScreen Interactive Demo)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.preview-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    max-width: 240px;
+    margin: 0 auto;
+}
+
+.preview-square {
+    aspect-ratio: 1;
+    font-size: 0.75rem;
+    padding: 0.5rem;
+}
+
+@keyframes celebrate {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1) rotate(5deg); }
+    100% { transform: scale(1); }
+}
+
+.animate-celebrate { 
+    animation: celebrate 0.5s ease-out; 
+}
+
+@keyframes fade-up {
+    0% { 
+        opacity: 0; 
+        transform: translateY(10px); 
+    }
+    100% { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+.animate-fade-up { 
+    animation: fade-up 0.3s ease-out; 
+}
+
+/* Confetti-like sparkles for preview win */
+.sparkle {
+    position: absolute;
+    font-size: 1.5rem;
+    pointer-events: none;
+    animation: sparkle-float 2s ease-out forwards;
+}
+
+@keyframes sparkle-float {
+    0% { 
+        opacity: 0;
+        transform: translateY(0) scale(0.5);
+    }
+    20% {
+        opacity: 1;
+    }
+    100% { 
+        opacity: 0;
+        transform: translateY(-50px) scale(1.2) rotate(180deg);
+    }
+}

@@ -1,47 +1,68 @@
-<div class="flex flex-col items-center justify-center min-h-full p-6 bg-kolam relative overflow-hidden">
-    <!-- Decorative Kolam Corner Elements -->
-    <div class="absolute top-4 left-4 text-gold text-4xl opacity-40 animate-float" style="font-family: serif;">❈</div>
-    <div class="absolute top-4 right-4 text-gold text-4xl opacity-40 animate-float" style="animation-delay: 0.5s; font-family: serif;">❈</div>
-    <div class="absolute bottom-4 left-4 text-gold text-4xl opacity-40 animate-float" style="animation-delay: 1s; font-family: serif;">❈</div>
-    <div class="absolute bottom-4 right-4 text-gold text-4xl opacity-40 animate-float" style="animation-delay: 1.5s; font-family: serif;">❈</div>
-
-    <div class="text-center max-w-sm relative">
-        <!-- Temple Lamp Icon -->
-        <div class="text-5xl mb-4 animate-pulse-gold">🪔</div>
-        
-        <!-- Main Title with Tamil Script -->
-        <h1 class="font-display text-4xl text-maroon mb-1 tracking-wide">சோக் ஓப்ஸ்</h1>
-        <p class="text-2xl font-bold text-gradient-maroon mb-2">Soc Ops</p>
-        <p class="text-lg text-secondary mb-8 font-medium">சமூக பிங்கோ · Social Bingo</p>
-
-        <!-- How to Play Card - Temple Style -->
-        <div class="card-temple p-6 mb-8 relative">
-            <h2 class="font-bold text-maroon mb-4 text-lg tracking-wide">விளையாட்டு விதிகள்</h2>
-            <p class="text-sm text-muted mb-3 italic">How to Play</p>
-            <ul class="text-left text-secondary text-sm space-y-3">
-                <li class="flex items-start gap-3">
-                    <span class="text-gold text-lg leading-none">🪷</span>
-                    <span>Find people who match the questions</span>
-                </li>
-                <li class="flex items-start gap-3">
-                    <span class="text-gold text-lg leading-none">🪔</span>
-                    <span>Tap a square when you find a match</span>
-                </li>
-                <li class="flex items-start gap-3">
-                    <span class="text-gold text-lg leading-none">✨</span>
-                    <span>Get 5 in a row to win!</span>
-                </li>
-            </ul>
+<div class="flex flex-col items-center justify-center min-h-full p-6 bg-kolam-subtle relative overflow-hidden">
+    <!-- Reduced decorative elements -->
+    <div class="absolute top-4 right-4 text-gold text-3xl opacity-30 animate-float" style="font-family: serif;">❈</div>
+    
+    <div class="text-center max-w-md relative">
+        <!-- Compact Title Section -->
+        <div class="mb-4">
+            <div class="text-3xl mb-2 animate-pulse-gold">🪔</div>
+            <h1 class="font-display text-2xl text-maroon mb-1 tracking-wide">சோக் ஓப்ஸ் · Soc Ops</h1>
+            <p class="text-sm text-muted mb-4">Try it! Tap squares to see how it works</p>
         </div>
 
-        <!-- Start Button - Temple Bell Style -->
+        <!-- Mini Bingo Board Preview (HERO ELEMENT) -->
+        <div class="card-temple border-saree p-6 mb-6 relative @(hasWon ? "animate-celebrate" : "")">
+            <div class="preview-board">
+                @for (int i = 0; i < 9; i++)
+                {
+                    int index = i;
+                    <button
+                        @onclick="() => TogglePreviewSquare(index)"
+                        disabled="@(index == 4)"
+                        class="@GetPreviewSquareClasses(index)"
+                        aria-pressed="@previewMarked[index]">
+                        <span class="@(index == 4 ? "text-base" : "text-xs")">@GetPreviewSquareText(index)</span>
+                        @if (previewMarked[index] && index != 4)
+                        {
+                            <span class="diya-mark">🪔</span>
+                        }
+                    </button>
+                }
+            </div>
+
+            <!-- Sparkles on win -->
+            @if (hasWon)
+            {
+                <span class="sparkle" style="top: 10%; left: 15%;">✨</span>
+                <span class="sparkle" style="top: 15%; right: 20%; animation-delay: 0.1s;">✨</span>
+                <span class="sparkle" style="bottom: 20%; left: 25%; animation-delay: 0.2s;">✨</span>
+                <span class="sparkle" style="bottom: 15%; right: 15%; animation-delay: 0.15s;">✨</span>
+            }
+        </div>
+
+        <!-- Contextual Hints -->
+        <div class="mb-6 min-h-[40px] animate-fade-up" key="@currentHint">
+            <p class="text-sm text-secondary font-medium">@currentHint</p>
+        </div>
+
+        <!-- Reset Button (small, secondary style) -->
+        @if (interactionCount > 0)
+        {
+            <button
+                @onclick="ResetPreview"
+                class="btn-secondary text-xs py-2 px-4 rounded-lg mb-4 transition-all">
+                <span>Reset Preview</span>
+            </button>
+        }
+
+        <!-- Dynamic CTA Button -->
         <button
             @onclick="OnStart"
-            class="w-full btn-primary font-bold py-4 px-8 rounded-xl text-lg tracking-wider">
+            class="w-full btn-primary font-bold py-4 px-8 rounded-xl text-lg tracking-wider @(hasWon ? "animate-bounce-in" : "")">
             <span class="flex items-center justify-center gap-3">
-                <span>🔔</span>
-                <span>தொடங்கு · Start Game</span>
-                <span>🔔</span>
+                <span>@GetButtonIcon()</span>
+                <span>@GetButtonText()</span>
+                <span>@GetButtonIcon()</span>
             </span>
         </button>
 
@@ -53,4 +74,140 @@
 @code {
     [Parameter]
     public EventCallback OnStart { get; set; }
+
+    private bool[] previewMarked = new bool[9];
+    private bool[] winningSquares = new bool[9];
+    private int interactionCount = 0;
+    private bool hasWon = false;
+    private string currentHint = "👆 Tap any square to mark it";
+
+    private readonly string[] previewTexts = new[]
+    {
+        "Tap me!", "Try it!", "🎯", 
+        "Click!", "FREE 🪔", "Go!",
+        "Test it!", "Play!", "Mark!"
+    };
+
+    private void TogglePreviewSquare(int index)
+    {
+        if (index == 4) return; // Center FREE space
+
+        previewMarked[index] = !previewMarked[index];
+        interactionCount++;
+        CheckPreviewWin();
+        UpdateHint();
+    }
+
+    private void CheckPreviewWin()
+    {
+        // Reset winning squares
+        winningSquares = new bool[9];
+        hasWon = false;
+
+        int[][] lines = new[]
+        {
+            new[]{0,1,2}, new[]{3,4,5}, new[]{6,7,8}, // rows
+            new[]{0,3,6}, new[]{1,4,7}, new[]{2,5,8}, // cols
+            new[]{0,4,8}, new[]{2,4,6} // diagonals
+        };
+
+        foreach (var line in lines)
+        {
+            // Check if all three in the line are marked (center is always considered marked)
+            bool allMarked = true;
+            foreach (var pos in line)
+            {
+                if (pos == 4) continue; // Free space is always marked
+                if (!previewMarked[pos])
+                {
+                    allMarked = false;
+                    break;
+                }
+            }
+
+            if (allMarked)
+            {
+                hasWon = true;
+                foreach (var pos in line)
+                {
+                    winningSquares[pos] = true;
+                }
+                break;
+            }
+        }
+    }
+
+    private void UpdateHint()
+    {
+        if (hasWon)
+        {
+            currentHint = "🎉 You got it! Ready to play for real?";
+        }
+        else if (interactionCount == 1)
+        {
+            currentHint = "Keep going! Get 3 in a row";
+        }
+        else if (interactionCount > 1)
+        {
+            currentHint = "Keep going! Get 3 in a row";
+        }
+    }
+
+    private void ResetPreview()
+    {
+        previewMarked = new bool[9];
+        winningSquares = new bool[9];
+        interactionCount = 0;
+        hasWon = false;
+        currentHint = "👆 Tap any square to mark it";
+    }
+
+    private string GetPreviewSquareClasses(int index)
+    {
+        var baseClasses = "preview-square relative flex items-center justify-center rounded-lg transition-all duration-150 select-none font-medium";
+
+        string stateClasses;
+        if (winningSquares[index])
+        {
+            stateClasses = "bingo-square-winning text-maroon font-bold";
+        }
+        else if (previewMarked[index] || index == 4)
+        {
+            stateClasses = index == 4 ? "bingo-square-free font-bold text-gold" : "bingo-square-marked text-green";
+        }
+        else
+        {
+            stateClasses = "bingo-square text-secondary";
+        }
+
+        var hoverClasses = index != 4 ? "hover:scale-95 active:scale-90" : "";
+
+        return $"{baseClasses} {stateClasses} {hoverClasses}";
+    }
+
+    private string GetPreviewSquareText(int index)
+    {
+        return previewTexts[index];
+    }
+
+    private string GetButtonText()
+    {
+        if (hasWon)
+        {
+            return "🎉 Play Now!";
+        }
+        else if (interactionCount > 0)
+        {
+            return "I'm Ready! Start Game";
+        }
+        else
+        {
+            return "Start Full Game";
+        }
+    }
+
+    private string GetButtonIcon()
+    {
+        return hasWon ? "🎉" : "🔔";
+    }
 }
